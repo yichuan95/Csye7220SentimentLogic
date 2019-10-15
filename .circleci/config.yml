@@ -34,7 +34,6 @@ jobs:
             cd sa
       - run: pip install
       
-      - run: chmod 777 /usr/local/lib/python3.6/site-packages/werkzeug
       
       - run:
           name: prepare dependencies
