@@ -35,7 +35,7 @@ jobs:
           command: |
             sudo pip install virtualenv
             sudo virtualenv -p python3 venv/
-            sudo source venv/bin/activate
+            sudo . venv/bin/activate
       
       - run:
           name: navigate to working_directory
