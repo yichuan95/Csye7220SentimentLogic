@@ -15,29 +15,11 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo/sa-logic/sa
+    working_directory: ~/repo
 
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
       # this example uses Django's built-in test-runner
@@ -59,12 +41,12 @@ jobs:
       - run:
           name: prepare dependencies
           command: |
-            python m pip install r requirements.txt
-            python m textblob.download_corpora      
+            python -m pip install -r requirements.txt
+            python -m textblob.download_corpora      
 
       - run:
           name: start application
-          command: python sentiment_analysis.py
+          command: python ./sa-logic/sa/sentiment_analysis.py
       - store_artifacts:
           path: test-reports
           destination: test-reports
