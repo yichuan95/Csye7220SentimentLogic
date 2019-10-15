@@ -34,8 +34,8 @@ jobs:
           name: set up venv
           command: |
             sudo pip install virtualenv
-            sudo virtualenv -p python3 venv/
-            sudo . venv/bin/activate
+            sudo virtualenv venv/
+            sudo source venv/bin/activate
       
       - run:
           name: navigate to working_directory
