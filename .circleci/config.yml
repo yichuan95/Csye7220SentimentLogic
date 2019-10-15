@@ -28,7 +28,7 @@ jobs:
       # https://nose.readthedocs.io
       
       
-      - run: pip install --upgrade pip
+      - run: sudo pip install --upgrade pip
       
       - run: 
           name: set up venv
