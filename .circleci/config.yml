@@ -32,7 +32,9 @@ jobs:
           command: |
             cd sa-logic
             cd sa
-            
+      
+      - run: chmod 777 /usr/local/lib/python3.6/site-packages/werkzeug
+      
       - run:
           name: prepare dependencies
           command: |
