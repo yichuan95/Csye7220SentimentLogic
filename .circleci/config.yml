@@ -26,20 +26,26 @@ jobs:
       # other common Python testing frameworks include pytest and nose
       # https://pytest.org
       # https://nose.readthedocs.io
-            
+      - run: 
+          name: set up venv
+          command: |
+            pip install virtualenv
+            virtualenv -p python3 venv/
+            source venv/bin/activate
+      
       - run:
           name: navigate to working_directory
           command: |
             cd sa-logic
             cd sa
-      - run: pip install
+      - run: pip install --upgrade pip
       
       
       - run:
           name: prepare dependencies
           command: |
-            python -m pip install -r ./sa-logic/sa/requirements.txt
-            python -m textblob.download_corpora      
+            sudo python -m pip install -r ./sa-logic/sa/requirements.txt
+            sudo python -m textblob.download_corpora      
 
       - run:
           name: start application
