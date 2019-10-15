@@ -35,7 +35,7 @@ jobs:
           command: |
             sudo pip install virtualenv
             sudo virtualenv venv/
-            sudo venv\Scripts\activate
+            sudo venv/Scripts/activate
       
       - run:
           name: navigate to working_directory
